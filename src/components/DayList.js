@@ -1,7 +1,7 @@
 import React from "react";
 import DayListItem from "components/DayListItem";
 
-//Render a list of <DayListItem> components
+//Render a list of <DayListItem> components passing in default props
 export default function Button(props) {
 
    const days = props.days.map((day) => {
