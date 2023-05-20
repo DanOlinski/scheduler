@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 
-
 import "components/DayListItem.scss";
 
 //this is rendered five times(week days) in the left menu. these work as buttons but they also display information: Week Day, spots remaining
