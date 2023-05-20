@@ -18,14 +18,14 @@ export default function DayListItem(props) {
   return (
     <li 
       className={interviewerClass}
-      onClick={() => props.setInterviewer(props.name)}
+      onClick={props.setInterviewer}
     >
       <img
         className="interviewers__item-image"
         src={props.avatar}
         alt={props.name}
       />
-      {props.selected && <div>{props.name}</div>}
+      {props.selected && props.name}
       </li>
   );
 }
