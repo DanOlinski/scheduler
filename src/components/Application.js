@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from 'react';
 
 import "components/Application.scss";
 import DayList from "components/DayList";
@@ -22,6 +22,10 @@ const days = [
 ];
 
 export default function Application(props) {
+  //setting the default state to Monday so that Monday is selected when the page is loaded
+  const [dayState, setDayState] = useState("Monday");
+
+  //inside nav element add DayList(this element renders one button per each object in an array, this array is defined as "days" declared as an attribute witch is a prop that is the accessed by the elements created within the DayList element)
   return (
     <main className="layout">
 
@@ -37,8 +41,8 @@ export default function Application(props) {
         <nav className="sidebar__menu">
           <DayList
             days={days}
-            day={"Monday"}
-            setDay={day => console.log(day)}
+            day={dayState}
+            setDay={setDayState}
           />
         </nav>
         
