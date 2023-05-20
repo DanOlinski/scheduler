@@ -17,7 +17,6 @@ export default function DayListItem(props) {
 
   return (
     <li 
-      key = {props.id}
       className={interviewerClass}
       onClick={() => props.setInterviewer(props.name)}
     >
