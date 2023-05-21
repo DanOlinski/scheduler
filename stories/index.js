@@ -13,7 +13,13 @@ import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
 import InterviewerList from "components/InterviewerList";
 
-import Appointment from "components/Appointment";
+import Appointment from "components/Appointment/index.js";
+import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
+import Confirm from "components/Appointment/Confirm";
+import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
 
 //Initiates Storybook for Button element
 storiesOf("Button", module)
@@ -150,3 +156,53 @@ storiesOf("InterviewerList", module)
   ));
 
   //Initiates Storybook for Appointment element
+  storiesOf("Appointment", module)
+  .addParameters({
+    backgrounds: [{ name: "white", value: "#fff", default: true }]
+  })
+  .add("Appointment", () => 
+    <Appointment />
+  )
+  .add("Appointment with time", () => 
+    <Appointment 
+      time="12pm"
+    />
+  )
+  .add("Header", () => 
+    <Header
+      time="12pm"
+    />
+  )
+  .add("Empty", () => 
+    <Empty
+      onAdd={action("add interview")}
+    />
+  )
+  .add("Show", () => 
+    <Show
+      onEdit={action("onEdit")}
+      onDelete={action("onDelete")}
+
+      student="Lydia Miller-Jones"
+      interviewer={interviewer.name}
+    />
+  )
+  .add("Confirm", () => 
+    <Confirm
+      onCancel={action("onCancel")}
+      onConfirm={action("onConfirm")}
+
+      message="Delete the appointment?"
+      />
+  )
+  .add("Status", () => 
+    <Status
+    message="Deleting"
+    />  
+    )
+    .add("Error", () => 
+    <Error
+      onClose={action("onClose")}
+      message="Could not delete appointment"
+    />  
+  )
