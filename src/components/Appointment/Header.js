@@ -1,5 +1,6 @@
 import React from "react";
 
+//Render element for appointment header
 export default function Header(props) {
 
   return (

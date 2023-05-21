@@ -1,5 +1,6 @@
 import React from "react";
 
+//Render element for loading status
 export default function Status(props) {
   return (
 

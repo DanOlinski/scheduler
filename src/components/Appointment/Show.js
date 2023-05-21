@@ -1,5 +1,6 @@
 import React from "react";
 
+//Render element for showing info on an existing appointment
 export default function Show(props) {
   return (
 

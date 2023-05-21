@@ -5,7 +5,7 @@ import "components/Button.scss";
 
 //create a default button element that dynamically changes style and name based on props passed in
 export default function Button(props) {
-   
+    
    
 
    //classnames is a js module it takes in 2 parameters, a string and an object, the string will always return but the object will return the key(s) only if the value of that key equals to truthy. This module is better than using if statements

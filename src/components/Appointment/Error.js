@@ -1,5 +1,6 @@
 import React from "react";
 
+//Render element for prompting client about an error appointment
 export default function Status(props) {
   return (
 

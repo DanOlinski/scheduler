@@ -1,5 +1,6 @@
 import React from "react";
 
+//Render element for adding a new appointment
 export default function Empty(props) {
   return (
     

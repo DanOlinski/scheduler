@@ -20,6 +20,7 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
 
 //Initiates Storybook for Button element
 storiesOf("Button", module)
@@ -199,10 +200,29 @@ storiesOf("InterviewerList", module)
     <Status
     message="Deleting"
     />  
-    )
-    .add("Error", () => 
+  )
+  .add("Error", () => 
     <Error
       onClose={action("onClose")}
       message="Could not delete appointment"
+    />  
+  )
+  .add("Form Edit story", () => 
+    <Form
+      student="Lydia Miller-Jones"
+      interviewer={3}
+
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      nCancel={action("onCancel")}
+    
+    />  
+  )
+  .add("Form Create story", () => 
+    <Form
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+  
     />  
   )
