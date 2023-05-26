@@ -6,6 +6,7 @@ import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 
 //Mock data
+
 const appointments = {
   "1": {
     id: 1,
@@ -45,19 +46,29 @@ const appointments = {
   }
 };
 
-//render loop through data and one appointment for each object in the array
-const renderAppointment = Object.values(appointments).map((appointment) => {
+
+export default function Application(props) {
+  //setting the default states
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: appointments
+  });
+
+  //render loop through data and one appointment for each object in the array
+  const renderAppointment = Object.values(state.appointments).map((appointment) => {
   return (
   <Appointment
     key={appointment.id}
     {...appointment}
   />
-)})
+  )})
 
-export default function Application(props) {
-  //setting the default states
-  const [days, setDays] = useState([])
-  const [day, setDay] = useState("Monday");
+  //updates the day value inside state object
+  const setDay = day => setState((prev) => ({ ...prev, day }));
+
+  //updates the days value inside state object
+  const setDays = (daysArr) => setState((prev) => ({ ...prev, days: daysArr }));
 
   //API request to the database for days array
   useEffect(() => {
@@ -65,9 +76,8 @@ export default function Application(props) {
       .get("/api/days")
       .catch((e)=>console.log(e))
       .then((res) => {
-        console.log(res)
         setDays(res.data)
-        });
+      });
     },[])
 
   //inside nav element add DayList(this element renders one button per each object in an array, this array is defined as "days" declared as an attribute witch is a prop that is then accessed by the elements created within the DayList element)
@@ -85,8 +95,8 @@ export default function Application(props) {
         
         <nav className="sidebar__menu">
           <DayList
-            days={days}
-            value={day}
+            days={state.days}
+            value={state.day}
             onChange={setDay}
           />
         </nav>
