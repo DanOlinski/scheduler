@@ -1,27 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios"
 
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 
 //Mock data
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
 const appointments = {
   "1": {
     id: 1,
@@ -71,10 +55,22 @@ const renderAppointment = Object.values(appointments).map((appointment) => {
 )})
 
 export default function Application(props) {
-  //setting the default state to Monday so that Monday is selected when the page is loaded
+  //setting the default states
+  const [days, setDays] = useState([])
   const [day, setDay] = useState("Monday");
 
-  //inside nav element add DayList(this element renders one button per each object in an array, this array is defined as "days" declared as an attribute witch is a prop that is the accessed by the elements created within the DayList element)
+  //API request to the database for days array
+  useEffect(() => {
+    axios
+      .get("/api/days")
+      .catch((e)=>console.log(e))
+      .then((res) => {
+        console.log(res)
+        setDays(res.data)
+        });
+    },[])
+
+  //inside nav element add DayList(this element renders one button per each object in an array, this array is defined as "days" declared as an attribute witch is a prop that is then accessed by the elements created within the DayList element)
   return (
     <main className="layout">
 
