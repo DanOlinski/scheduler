@@ -1,5 +1,5 @@
 //state is an object containing days(an array of objects that contains days of the week and related appointments) and appointments(an object of objects containing information regarding each appointment). The function below returns an array of all appointments for a specific day(informed in the second argument)
-export default function getAppointmentsForDay (state, day) {
+export function getAppointmentsForDay (state, day) {
   const final = []  
   let appointments
 
@@ -25,6 +25,20 @@ export default function getAppointmentsForDay (state, day) {
     final.push(state.appointments[`${i}`])
     //console.log(state.appointments[`${i}`])
   }
-  console.log(final)
   return final;
+};
+
+
+//return an object that contains the interview data if it is passed an object that contains an interviewer. Otherwise, the function should return null.
+export function getInterview (state, interview) {
+  if(interview === null) {
+    return null
+  }
+
+  const final = {
+    student: interview.student,
+    interviewer: state.interviewers[`${interview.interviewer}`]
+  }
+ 
+return final
 };
