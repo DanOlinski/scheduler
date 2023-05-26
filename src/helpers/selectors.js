@@ -1,5 +1,5 @@
 //state is an object containing days(an array of objects that contains days of the week and related appointments) and appointments(an object of objects containing information regarding each appointment). The function below returns an array of all appointments for a specific day(informed in the second argument)
-function getAppointmentsForDay (state, day) {
+export default function getAppointmentsForDay (state, day) {
   const final = []  
   let appointments
 
@@ -28,5 +28,3 @@ function getAppointmentsForDay (state, day) {
   console.log(final)
   return final;
 };
-
-module.exports = getAppointmentsForDay;
