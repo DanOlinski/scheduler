@@ -1,6 +1,6 @@
 //state is an object containing days(an array of objects that contains days of the week and related appointments) and appointments(an object of objects containing information regarding each appointment). The function below returns an array of all appointments for a specific day(informed in the second argument)
 function getAppointmentsForDay (state, day) {
-  const final = []
+  const final = []  
   let appointments
 
   //if days data is empty return an empty array
