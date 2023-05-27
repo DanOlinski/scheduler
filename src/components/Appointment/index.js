@@ -18,7 +18,6 @@ export default function Appointment(props) {
   )
 
     //console.log(props.interview.student)
-    //console.log(mode)
 
   return (
     <article className="appointment">
@@ -37,7 +36,7 @@ export default function Appointment(props) {
 
       {mode === CREATE && (
         <Form
-          interviewers={[]}
+          interviewers={props.interviewers}//{props.interviewers}
           //onSave={}
           onCancel={back}
         />

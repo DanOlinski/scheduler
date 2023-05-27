@@ -6,6 +6,7 @@ import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 
 import {getAppointmentsForDay} from '../helpers/selectors.js'
+import {getInterviewersForDay} from '../helpers/selectors.js'
 import {getInterview} from '../helpers/selectors.js'
 
 export default function Application(props) {
@@ -20,6 +21,12 @@ export default function Application(props) {
   //set an array with all appointments for a selected day
   const dailyAppointments = getAppointmentsForDay(state, state.day)
 
+  //set an array with all interviewers for a selected day
+  const dailyInterviewers = getInterviewersForDay(state, state.day)
+  
+  // console.log(state)
+  // console.log(dailyInterviewers)
+
   //render loop through data and one appointment for each object in the array
   const renderAppointment = dailyAppointments.map((appointment) => {
     
@@ -30,6 +37,7 @@ export default function Application(props) {
     id={appointment.id}
     time={appointment.time}
     interview={interview}
+    interviewers={dailyInterviewers}
   />
   )})
 

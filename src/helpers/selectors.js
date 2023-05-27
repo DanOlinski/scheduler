@@ -43,10 +43,10 @@ export function getInterview (state, interview) {
 return final
 };
 
-//Return an array of all interviewers
+//takes in a day and the state object and returns an array of all interviewers
 export function getInterviewersForDay (state, day) {
   const final = []  
-  let interviewers
+  let interviewersId
 
   //if days data is empty return an empty array
   if(state.days.length === 0){
@@ -56,19 +56,20 @@ export function getInterviewersForDay (state, day) {
   //checking the object key for all appointments occurring in the specified date(coming from the argument)
   for(let i of state.days){
     if(day === i.name){
-      interviewers = i.interviewers
+      interviewersId = i['interviewers']
     }
   }
-
+  
   //if the day informed through the argument is not found return an empty array
-  if(!interviewers){
+  if(!interviewersId){
     return final
   }
-
-  //pushing into the final array all objects containing the info on appointments for the specified day
-  for(let i of interviewers){
-    final.push(state.interviewers[`${i}`])
-    //console.log(state.appointments[`${i}`])
+  
+  //pushing into the final array name of interviewers available on the specified day
+  for(let i of interviewersId){
+    if(state.interviewers[`${i}`]){
+      final.push(state.interviewers[`${i}`])
+    }
   }
   return final;
 };
