@@ -2,6 +2,7 @@ import React from "react";
 
 //Render element for showing info on an existing appointment
 export default function Show(props) {
+  
   return (
 
     <main className="appointment__card appointment__card--show">

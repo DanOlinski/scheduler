@@ -3,7 +3,7 @@ import DayListItem from "components/DayListItem";
 
 //Render a list of <DayListItem> components passing in default props
 //iterate through an array of objects and for each object render an HTML element
-export default function Button(props) {
+export default function DayList(props) {
 
    const days = props.days.map((day) => {
     return (

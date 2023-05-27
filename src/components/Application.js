@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 
 import "components/Application.scss";
 import DayList from "components/DayList";
@@ -22,7 +22,8 @@ export default function Application(props) {
 
   //render loop through data and one appointment for each object in the array
   const renderAppointment = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview)
+    
+  const interview = getInterview(state, appointment.interview)
   return (
   <Appointment
     key={appointment.id}

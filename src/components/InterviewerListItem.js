@@ -5,7 +5,7 @@ import "components/InterviewerListItem.scss";
 
 //this is renders a single item for an interviewer
 //Depending on the state it displays different styles
-export default function DayListItem(props) {
+export default function InterviewerListItem(props) {
   
   //apply different classes depending on the state
   let interviewerClass = classNames(

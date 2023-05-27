@@ -4,7 +4,8 @@ import InterviewerList from "components/InterviewerList.js";
 
 
 //Render element to create edit or delete a new appointment
-export default function Status(props) {
+export default function Form(props) {
+  
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 

@@ -4,7 +4,7 @@ import InterviewerListItem from "components/InterviewerListItem";
 
 //Render a list of InterviewerListItem components passing in default props
 //iterate through an array of objects and for each object render an HTML element
-export default function DayListItem(props) {
+export default function InterviewerList(props) {
   
   const interviewers = props.interviewers.map((interviewer) => {
     return (
