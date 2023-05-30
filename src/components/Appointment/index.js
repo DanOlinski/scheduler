@@ -5,6 +5,7 @@ import Show from "components/Appointment/Show";
 import Form from "components/Appointment/Form.js";
 import Status from "components/Appointment/Status.js";
 import Confirm from "components/Appointment/Confirm.js";
+import Error from "components/Appointment/Error";
 import {useVisualMode} from "../../hooks/useVisualMode";
 
 import "components/Appointment/styles.scss";
@@ -20,6 +21,8 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
 
   //The function below is a custom hook with 3 functionalities; 1) keeps track of the previous state, so that you can go back one step if needed(triggered by the cancel button). 2) checks the current mode(a single string). 3) transitions/changes the value of "mode"(check variables above for more info on modes)
   const { mode, transition, back } = useVisualMode(
@@ -40,6 +43,9 @@ export default function Appointment(props) {
     .then(() => {
       transition(SHOW)
     })
+    .catch((e) => {
+      transition(ERROR_SAVE, true)
+    })
   }
 
   //Delete an interview. Takes in a confirmation argument. The 1st time the delete button is clicked the user is prompt with a cancel or confirm warning, the received argument lets this function know if the user clicked the confirm button or if the user is clicking on the delete button for the 1st time
@@ -48,11 +54,14 @@ export default function Appointment(props) {
     if(confirmation){
       transition(CONFIRM)
     } else {
-      transition(DELETING)
+      transition(DELETING, true)
 
       props.cancelInterview(props.id)
         .then(()=>{
           transition(EMPTY)
+        })
+        .catch((e) => {
+          transition(ERROR_DELETE, true)
         })
     }
   }
@@ -114,6 +123,20 @@ export default function Appointment(props) {
           message="Delete the appointment?"
           onCancel={back}
           onConfirm={deleteInterview}
+        />
+      )}
+
+      {mode === ERROR_DELETE && (
+        <Error
+          onClose={back}
+          message="Could not delete appointment"
+        />
+      )}
+
+      {mode === ERROR_SAVE && (
+        <Error
+          onClose={back}
+          message="Could not save appointment"
         />
       )}
 
