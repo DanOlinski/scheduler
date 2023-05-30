@@ -16,6 +16,7 @@ export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
+  const EDIT = "EDIT";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
@@ -30,7 +31,7 @@ export default function Appointment(props) {
     //The object sets values to be passed into bookInterview function. "name" and "interviewer" are arguments passed in through the Forms.js file
     const interview = {
       student: name,
-      interviewer  
+      interviewer
     };
 
     transition(SAVING)
@@ -50,13 +51,16 @@ export default function Appointment(props) {
       transition(DELETING)
 
       props.cancelInterview(props.id)
-        .then((res)=>{
-          console.log(res)
+        .then(()=>{
           transition(EMPTY)
         })
     }
   }
   
+  const edit = () => {
+    transition(EDIT) 
+  }
+
   return (
     <article className="appointment">
       <Header
@@ -70,12 +74,24 @@ export default function Appointment(props) {
         student={props.interview.student}
         interviewer={props.interview.interviewer.name}
         onDelete={deleteInterview}
+        onEdit={edit}
         />
       )}
 
       {mode === CREATE && (
         <Form
-          interviewers={props.interviewers}//{props.interviewers}
+          interviewers={props.interviewers}
+          onSave={save}
+          onCancel={back}
+        />
+      )}
+
+      {mode === EDIT && (
+        <Form
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.id}
+
+          interviewers={props.interviewers}
           onSave={save}
           onCancel={back}
         />
