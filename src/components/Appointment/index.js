@@ -30,7 +30,7 @@ export default function Appointment(props) {
     //The object sets values to be passed into bookInterview function. "name" and "interviewer" are arguments passed in through the Forms.js file
     const interview = {
       student: name,
-      interviewer
+      interviewer  
     };
 
     transition(SAVING)
