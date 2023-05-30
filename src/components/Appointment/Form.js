@@ -29,9 +29,9 @@ export default function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             value={student}
+            //The student state stores the info typed into the form. If an existing interview is edited the student state will automatically be populated with the name of the student from the appointment being edited
             onChange={(event) => setStudent(event.target.value)}
-
-          />
+            />
         </form>
         <InterviewerList
           interviewers={props.interviewers}

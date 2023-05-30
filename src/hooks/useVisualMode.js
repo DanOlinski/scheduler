@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 //custom hook that keep track of previous state, so that you can go back one step
 export function useVisualMode(initialMode) {
   const [mode, setMode] = useState(initialMode);
   const [history, setHistory] = useState([initialMode]);
-  
   
   //transition to the next state
   function transition(newMode, replace = false){

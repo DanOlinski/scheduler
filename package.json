@@ -11,7 +11,7 @@
     "react-scripts": "3.4.4"
   },
   "scripts": {
-    "start": "CHOKIDAR_USEPOLLING=true react-scripts --max-old-space-size=10128 start",
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts --max-old-space-size=8128 start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

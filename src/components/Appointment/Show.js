@@ -26,7 +26,7 @@ export default function Show(props) {
           />
           
           <img
-            onClick={props.onDelete}
+            onClick={() => props.onDelete('ask for confirmation before deleting')}
             className="appointment__actions-button"
             src="images/trash.png"
             alt="Delete"
