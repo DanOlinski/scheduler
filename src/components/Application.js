@@ -9,7 +9,7 @@ import {getInterviewersForDay} from '../helpers/selectors.js'
 import {getInterview} from '../helpers/selectors.js'
 import useApplicationData from '../hooks/useApplicationData.js'
 
-export default function Application(props) {
+export default function Application() {
   //variable below manages the state changes from the component rendered in Application.js file
   const {
     state,
