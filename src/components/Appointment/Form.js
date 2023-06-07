@@ -24,6 +24,7 @@ export default function Form(props) {
   //Checks if a name was typed into the form and if an instructor was selected, otherwise don't save the appointment
   const validate = () => {
     if(student && interviewer) {
+      setError("")
       return props.onSave(student, interviewer)  
     }
 
@@ -48,7 +49,10 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={student}
             //The student state stores the info typed into the form. If an existing interview is edited the student state will automatically be populated with the name of the student from the appointment being edited
-            onChange={(event) => setStudent(event.target.value)}
+            onChange={(event) => {
+              setError("")
+              setStudent(event.target.value)
+            }}
             data-testid="student-name-input"
             />
             <section className="appointment__validation">
