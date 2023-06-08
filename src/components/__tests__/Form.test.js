@@ -162,7 +162,7 @@ describe("Form", () => {
       target: { value: "Lydia Miller-Jones" }
     });
   
-    fireEvent.click(getByText("Cancel"));
+     fireEvent.click(getByText("Cancel"));
   
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
   

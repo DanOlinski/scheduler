@@ -68,7 +68,9 @@ export default function Form(props) {
       
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button onClick={() => props.onCancel(cancel())} danger>Cancel</Button>
+          <Button onClick={cancel} danger>
+            Cancel
+          </Button>
           
           <Button 
             onClick={
