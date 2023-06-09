@@ -11,6 +11,7 @@
     "react-scripts": "3.4.4"
   },
   "scripts": {
+    "cypress": "cypress open -P .",
     "start": "CHOKIDAR_USEPOLLING=true react-scripts --max-old-space-size=8128 start",
     "build": "react-scripts build",
     "test": "react-scripts test",
