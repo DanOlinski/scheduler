@@ -13,10 +13,10 @@ export default function InterviewerListItem(props) {
     {
       "interviewers__item--selected": props.selected
     }
-  )
+  );
 
   return (
-    <li 
+    <li
       className={interviewerClass}
       onClick={props.setInterviewer}
     >
@@ -26,6 +26,6 @@ export default function InterviewerListItem(props) {
         alt={props.name}
       />
       {props.selected && props.name}
-      </li>
+    </li>
   );
 }

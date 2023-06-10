@@ -20,9 +20,9 @@ describe("Form", () => {
   it("renders without student name if not provided", () => {
     //Render component to be tested with all needed props
     const { getByPlaceholderText } = render(
-    <Form 
-      interviewers = {interviewers}
-    />
+      <Form
+        interviewers = {interviewers}
+      />
     );
 
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
@@ -31,9 +31,9 @@ describe("Form", () => {
   it("renders with initial student name", () => {
     //Render component to be tested with all needed props
     const { getByTestId } = render(
-      <Form 
-        interviewers = {interviewers} 
-        student="Lydia Miller-Jones" 
+      <Form
+        interviewers = {interviewers}
+        student="Lydia Miller-Jones"
       />
     );
 
@@ -46,9 +46,9 @@ describe("Form", () => {
     const onSave = jest.fn();
     //Render component to be tested with all needed props
     const { getByText } = render(
-      <Form 
-      interviewers = {interviewers}
-      onSave={onSave}
+      <Form
+        interviewers = {interviewers}
+        onSave={onSave}
       />
     );
     //Trigger click event
@@ -63,10 +63,10 @@ describe("Form", () => {
     const onSave = jest.fn();
     //Render component to be tested with all needed props
     const { getByText } = render(
-      <Form 
-      interviewers = {interviewers}
-      onSave={onSave}
-      student="Lydia Miller-Jones"
+      <Form
+        interviewers = {interviewers}
+        onSave={onSave}
+        student="Lydia Miller-Jones"
       />
     );
     //Trigger click event
@@ -82,11 +82,11 @@ describe("Form", () => {
     const onSave = jest.fn();
     //Render component to be tested with all needed props
     const { getByText, queryByText } = render(
-      <Form 
-      interviewers = {interviewers}
-      onSave={onSave}
-      student="Lydia Miller-Jones"
-      interviewer={interviewers[0].id}
+      <Form
+        interviewers = {interviewers}
+        onSave={onSave}
+        student="Lydia Miller-Jones"
+        interviewer={interviewers[0].id}
       />
     );
     
@@ -162,7 +162,7 @@ describe("Form", () => {
       target: { value: "Lydia Miller-Jones" }
     });
   
-     fireEvent.click(getByText("Cancel"));
+    fireEvent.click(getByText("Cancel"));
   
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
   

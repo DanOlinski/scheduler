@@ -27,9 +27,9 @@ export default function Appointment(props) {
   //The function below is a custom hook with 3 functionalities; 1) keeps track of the previous state, so that you can go back one step if needed(triggered by the cancel button). 2) checks the current mode(a single string). 3) transitions/changes the value of "mode"(check variables above for more info on modes)
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
-  )
+  );
 
-  //Save a new interview to the server 
+  //Save a new interview to the server
   function save(name, interviewer) {
     //The object sets values to be passed into bookInterview function. "name" and "interviewer" are arguments passed in through the Forms.js file
     const interview = {
@@ -37,53 +37,53 @@ export default function Appointment(props) {
       interviewer
     };
 
-    transition(SAVING)
+    transition(SAVING);
 
     props.bookInterview(props.id, interview)
-    .then(() => {
-      transition(SHOW)
-    })
-    .catch((e) => {
-      transition(ERROR_SAVE, true)
-    })
+      .then(() => {
+        transition(SHOW);
+      })
+      .catch((e) => {
+        transition(ERROR_SAVE, true);
+      });
   }
 
   //Delete an interview. Takes in a confirmation argument. The 1st time the delete button is clicked the user is prompt with a cancel or confirm warning, the received argument lets this function know if the user clicked the confirm button or if the user is clicking on the delete button for the 1st time
   const deleteInterview = (confirmation) => {
     
-    if(confirmation){
-      transition(CONFIRM)
+    if (confirmation) {
+      transition(CONFIRM);
     } else {
-      transition(DELETING, true)
+      transition(DELETING, true);
 
       props.cancelInterview(props.id)
         .then(()=>{
-          transition(EMPTY)
+          transition(EMPTY);
         })
         .catch((e) => {
-          transition(ERROR_DELETE, true)
-        })
+          transition(ERROR_DELETE, true);
+        });
     }
-  }
+  };
   
   const edit = () => {
-    transition(EDIT) 
-  }
+    transition(EDIT);
+  };
 
   return (
     <article className="appointment" data-testid="appointment">
       <Header
         time={props.time}
       />
-      {mode === EMPTY && 
+      {mode === EMPTY &&
         <Empty onAdd={() => transition(CREATE)} />}
       
       {mode === SHOW && (
         <Show
-        student={props.interview.student}
-        interviewer={props.interview.interviewer.name}
-        onDelete={deleteInterview}
-        onEdit={edit}
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.name}
+          onDelete={deleteInterview}
+          onEdit={edit}
         />
       )}
 

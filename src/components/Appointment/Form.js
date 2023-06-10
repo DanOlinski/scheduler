@@ -10,32 +10,30 @@ export default function Form(props) {
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
-  //console.log(props.interviewer)
-
   const reset = () => {
-    setStudent("")
-    setInterviewer(null)
-  }
+    setStudent("");
+    setInterviewer(null);
+  };
   const cancel = () => {
-    reset()
-    props.onCancel()
-  }
+    reset();
+    props.onCancel();
+  };
 
   //Checks if a name was typed into the form and if an instructor was selected, otherwise don't save the appointment
   const validate = () => {
-    if(student && interviewer) {
-      setError("")
-      return props.onSave(student, interviewer)  
+    if (student && interviewer) {
+      setError("");
+      return props.onSave(student, interviewer);
     }
 
-    if(!interviewer){
-      setError("Please select an interviewer")
+    if (!interviewer) {
+      setError("Please select an interviewer");
     }
 
-    if(!student){
-      setError("Student name cannot be blank")
+    if (!student) {
+      setError("Student name cannot be blank");
     }
-  }
+  };
 
   return (
 
@@ -50,14 +48,14 @@ export default function Form(props) {
             value={student}
             //The student state stores the info typed into the form. If an existing interview is edited the student state will automatically be populated with the name of the student from the appointment being edited
             onChange={(event) => {
-              setError("")
-              setStudent(event.target.value)
+              setError("");
+              setStudent(event.target.value);
             }}
             data-testid="student-name-input"
-            />
-            <section className="appointment__validation">
-              {error}
-            </section>
+          />
+          <section className="appointment__validation">
+            {error}
+          </section>
         </form>
         <InterviewerList
           interviewers={props.interviewers}
@@ -72,11 +70,11 @@ export default function Form(props) {
             Cancel
           </Button>
           
-          <Button 
+          <Button
             onClick={
               validate
-            } 
-              confirm
+            }
+            confirm
           >Save
           </Button>
 

@@ -5,6 +5,14 @@
 /.pnp
 .pnp.js
 
+# database dependencies
+/scheduler-api-server/node_modules/
+/scheduler-api-server/.DS_Store
+/scheduler-api-server/.env
+/scheduler-api-server/.env.development
+/scheduler-api-server/.env.test
+/scheduler-api-server/coverage/
+
 # testing
 /coverage
 

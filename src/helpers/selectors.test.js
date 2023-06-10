@@ -1,6 +1,6 @@
-import {getAppointmentsForDay} from './selectors.js'
-import {getInterview} from './selectors.js'
-import {getInterviewersForDay} from './selectors.js'
+import {getAppointmentsForDay} from './selectors.js';
+import {getInterview} from './selectors.js';
+import {getInterviewersForDay} from './selectors.js';
 
 const state = {
   days: [

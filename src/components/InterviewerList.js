@@ -9,15 +9,15 @@ function InterviewerList(props) {
   
   const interviewers = props.interviewers.map((interviewer) => {
     return (
-      <InterviewerListItem 
+      <InterviewerListItem
         key = {interviewer.id}
         name = {interviewer.name}
         avatar = {interviewer.avatar}
         selected = {interviewer.id === props.value}
         setInterviewer = {() => props.onChange(interviewer.id)}
       />
-    )
-  })
+    );
+  });
 
   return (
     <section className="interviewers">
@@ -30,6 +30,6 @@ function InterviewerList(props) {
 //using propTypes to limit the interviewers prop to be an array
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
-}
+};
 
 export default InterviewerList;
