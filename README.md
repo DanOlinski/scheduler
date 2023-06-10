@@ -4,8 +4,8 @@
 ## Setup
   1. Clone this repository onto your local device.
   2. Install dependencies using the `npm install` command from root directory.
-  3. Follow the setup instructions for serving the database. The instructions are defined in the README.md file within scheduler-api-server directory.
-  4. Start the database server using the `npm start` command from within scheduler-api-server directory. The database will be served at <http://localhost:8001/>.
+  3. Follow the setup instructions for serving the database. The instructions are defined in the README.md file within scheduler-api-db-server directory.
+  4. Start the database server using the `npm start` command from within scheduler-api-db-server directory. The database will be served at <http://localhost:8001/>.
   5. Start the client web server(in a separate terminal) using the `npm start` command from root directory. The client interface app will be served at <http://localhost:8000/>.
   6. Go to <http://localhost:8000/> in your browser and check out the features of this web page.
 
