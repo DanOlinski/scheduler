@@ -7,10 +7,6 @@
 
 # database dependencies
 scheduler-api-db-server/node_modules
-scheduler-api-db-server/.DS_Store
-scheduler-api-db-server/.env
-scheduler-api-db-server/.env.development
-scheduler-api-db-server/.env.test
 scheduler-api-db-server/coverage
 
 # testing
